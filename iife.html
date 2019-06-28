@@ -1,0 +1,50 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>IIFE</title>
+  </head>
+  <body>
+    <script>
+      /*    
+            *********ONLY AFTER KNOWING HOISTING LEARN THIS**********
+            1. Why use IIFE?
+            Ans: The primary reason to use an IIFE is to obtain data privacy. 
+                Because JavaScript's var scopes variables to their containing function, 
+                any variables declared within the IIFE cannot be accessed by the outside world.
+                
+            2. What is IIFE? 
+            Ans: It's abreviation is Immediately Invoked Function Expression!!
+                 It's nothing but calling a function immediately after it is defined.
+
+            example : (function(){
+                console.log("hi");
+            })();
+
+            Wrong way(x) : function(){
+                console.log("hi")
+            }();
+
+            ** The whole iife function should be written inside the paranthesis 
+               because the values of that function should only be available for that function.. 
+            ** They can't be accessed outside the function so that the global
+               scope won't get dirty.
+        */
+
+      (function() {
+        var letsCheck = "I'm not available outside";
+      })();
+      // console.log(letsCheck); This will give a error because letsCheck is born when that
+      // function is entered and letsCheck will be dead once that function is executed.
+      // (Refer hoisting for better understanding)!!!
+
+      var letsGetName = (function() {
+        var name = "Dhee";
+        return name;
+      })();
+      letsGetName;
+      // Now letsGetName will have the name.
+    </script>
+  </body>
+</html>
