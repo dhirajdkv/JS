@@ -1,0 +1,153 @@
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta http-equiv="X-UA-Compatible" content="ie=edge" />
+    <title>Document</title>
+  </head>
+        <body onClick="alert('hi')">
+                <div id="parent">
+                    <button id="child">Child</button>
+                </div>
+                <button id="child">Child</button>
+
+    <script>
+      /* *****EVENT CAPTURING AND BUBBLING*****
+
+      Points To Remember:
+      * When an event occurs, the element in which this event took place will be “target element” (event.target).
+      * Then the event starts to move from document root to the element where event has occured 
+       by handling the events..(Capture). If addEventListener has Capture as true then on its way
+       from document root it will handle those elements.
+      * Then rest of them having addEventListener(type,listener, false) will be handled.
+
+            There are three terminologies to be known for handling events..
+            1. Event Bubbling.
+            2. Event target.
+            3. Event Capturing.
+
+        what is Event Bubbling?
+        Let's consider there is a main div(1) inside this there is another div(2) tag.. inside this second div
+         tag let's consider a p tag.... Now let's assume the div(1), div(2), and p tag are having
+         eventListeners like onClick.. Now, when p tag is clicked it executes the given function and 
+          then it won't stop here ....
+
+          It will also trigger the div(2)'s onClick function... then this div(2) will again trigger 
+          the div(1)...
+
+        (From google:Event bubbling is a term you might have come across on your JavaScript travels. 
+        It relates to the order in which event handlers are called when one element is nested
+         inside a second element, and both elements have registered a listener for the """same event"""
+         (a click, for example))
+
+          In other words bubbling will trigger events from where it was first handled.
+        
+            Example 1:
+                Just to understand what is event bubbling.
+            <html>
+                <head>
+                    <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width">
+                    <title>Event Bubbling</title>
+                </head>
+                <body>
+                    <div id="parent" onClick="alert('Div is clicked')">Div
+                        <span id="child" onClick="alert('span is clicked')">SPan
+                            <input type="button"  value="Button"  onClick="alert('INP is clicked')"/>
+                        </span>
+                    </div>
+
+                <script>
+                    
+                 </scrip>
+                </body>
+            </html>
+
+            Example 2 : Just because you asked how to stop event bubbling!! :)
+            <html>
+                <head>
+                  <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width">
+                    <title>Event Bubbling</title>
+                </head>
+                <body>
+                    <div id="parent">
+                    <button id="child" onclick="event.stopPropagation()">Child</button>
+                </div>
+  
+                <script>
+                    var parent = document.querySelector('#parent');
+                    <!-- Add click event on parent div -->
+                    parent.addEventListener('click', function(){
+                    console.log("Parent clicked");
+                    });   
+                    var child = document.querySelector('#child');
+                    <!-- Add click event on child button -->
+                    child.addEventListener('click', function(){
+                        console.log("Child clicked");
+                    });   
+                </scrip>
+            </body>
+        </html>
+
+
+            Example 3:
+            <body onclick="alert(`the bubbling doesn't reach here`)">
+                <button onclick="event.stopPropagation()">Click me</button> //This won't bubble because we are stopping the bubbling using event.stopPropogation method.
+            </body>
+
+            What is Event Capture?
+            Did you understand the event bubbling concept??
+            If yes, proceed or ask doubt!
+
+            Event Capture is quite opposite to event bubbling, where in event capture if an element inside 
+            parent tag is triggered firstly then in event capturing first parent tag will get triggered and
+            then followed by child elements.
+
+            Both of them differ at one place... 
+
+            ***eventTarget.addEventListener(type,listener,[,useCapture]);***
+
+            usually useCapture will be false.. That means that initially capture method is not used
+            .. But if you want to use it explicitly then you need to make it true.. so that
+            the outer elements get triggered first and then later child elements will be triggered.
+            
+            Example 4: 
+                <html>
+                <head>
+                  <meta charset="utf-8">
+                    <meta name="viewport" content="width=device-width">
+                    <title>Event Bubbling</title>
+                </head>
+                <body>
+                    <div id="parent">
+                    <button id="child" onclick="event.stopPropagation()">Child</button>
+                </div>
+  
+                <script>
+                    var parent = document.querySelector('#parent');
+                    <!-- Add click event on parent div -->
+                    parent.addEventListener('click', function(){
+                    console.log("Parent clicked");
+                    }, true);   
+                    var child = document.querySelector('#child');
+                    <!-- Add click event on child button -->
+                    child.addEventListener('click', function(){
+                        console.log("Child clicked");
+                    });   
+                </scrip>
+            </body>
+        </html>
+            */
+
+            var parent = document.querySelector('#parent');
+    var child = document.querySelector('#child');
+    parent.addEventListener('click', function(){
+      console.log("Parent clicked");
+    },true);
+    child.addEventListener('click', function(){
+      console.log("Child clicked");
+    }, true);
+    </script>
+  </body>
+</html>
