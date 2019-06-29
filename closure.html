@@ -1,0 +1,52 @@
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        /*
+            ***POINTS TO REMEMBER*****
+            ** In js all functions have access to the scope "above" them.(i.e inner functions
+            can access the elements of outer functions.)
+            1. Why Closure?
+            Ans: They are used in js for better data privacy(i.e the data inside one function
+            can't be accessed outside that particular function), and they're used for event handlers.
+            In closures Global variables can be made private using closures!!
+
+            2. What is closure?
+            Ans: ** A closure gives you access to an outer function’s scope from an inner function. 
+                In JavaScript, closures are created every time a function is created, 
+                at function creation time.
+                ** Closure is nothing but writting a function inside a function that can access
+                all the elements of outer functions.
+
+            eg: var res = function(){
+                var dhiraj = "dhee";
+                function printing(){
+                    console.log(dhiraj);
+                }
+                 return printing; 
+            }
+            var finalRes = res(); // this will print dhee in console.
+        */
+            var dhi = function(){
+                var a = 10;
+                c = 30;
+                var first = function(){
+                    var b=20;
+                    console.log(a);
+                }
+                a = 20;
+                (function(){
+                    console.log(c);
+                })();
+                return first()
+            }
+            dhi();
+
+    </script>
+</body>
+</html>
