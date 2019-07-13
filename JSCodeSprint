@@ -1,0 +1,116 @@
+
+https://medium.com/@reach2arunprakash/guvi-zen-code-sprint-javascript-practice-problems-in-json-objects-and-list-49ac3356a8a5
+
+questions are provided on above link.. answers are below.
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+        // TASK 1
+        // var object = {name : 'RajiniKanth', age : 33, hasPets : false};
+        // var a=[];
+        // var i,j=0,k;
+        // function printAllValues(obj) {
+        //    for( [i,k] of Object.entries(obj)){
+        //        a[j]=k;
+        //        j++;
+        //    }
+        // }
+        // printAllValues(object);
+        
+
+        //TASK 2
+        // var object = {name : 'RajiniKanth', age : 33, hasPets : false};
+        // var a=[];
+        // var i,j=0,k;
+        // function printAllValues(obj) {
+        //    for( [i,k] of Object.entries(obj)){
+        //        a[j]=i;
+        //        j++;
+        //    }
+        // }
+        // printAllValues(object);
+
+
+        // TASK 3
+        // var arr=[]
+        // var i=0;
+        // var object = {name: 'ISRO', age: 35, role: 'Scientist'};
+        //         function convertListToObject(obj) 
+        //         {
+        //         for( [key,value] of Object.entries(obj)){
+        //             arr[i]=[key,value];
+        //             i++;
+        //         }
+        //     }
+        //     convertListToObject(object);
+        //     console.log(arr);
+
+
+        //TASK 4
+        // var array = ['GUVI', 'I', 'am', 'a geek'];
+        // function transformFirstAndLast(arr) {
+        //     var newObject={};
+        //     var arr1 = arr[0];
+        //     var arr2 = arr[arr.length-1];
+        //     newObject[arr1] = arr2;
+            
+        //     return newObject;
+        // }
+        // var object = transformFirstAndLast(array);
+        // console.log(object);
+
+        //TASK 5
+
+        // var array = [['make', 'Ford'], ['model', 'Mustang'], ['year', 1964]];
+        // function fromListToObject(arr) {
+        //     var newObject = {};
+            
+        //     arr.forEach(element => {
+        //         newObject[element[0]]=element[1];
+        //     });
+        //     return newObject;
+        //     }
+        //     var object = fromListToObject(array);
+
+
+        //TASK 6
+        // var array = [[['firstName', 'Vasanth'], ['lastName', 'Raja'], ['age', 24], ['role', 'JSWizard']], [['firstName', 'Sri'], ['lastName', 'Devi'], ['age', 28], ['role', 'Coder']]];
+        // var i=0;
+        // var newobj={};
+        // function transformEmployeeData(arr) {
+        //     var tranformEmployeeList = [];
+        //     arr.forEach(element => {
+        //         element.forEach(ele=>{
+        //             newobj[ele[0]]=ele[1];
+        //         });
+        //         tranformEmployeeList[i]=newobj;
+        //         i++;
+        //     });
+        //     console.log(tranformEmployeeList);
+        //     return tranformEmployeeList;
+        // }
+        // transformEmployeeData(array);
+
+
+        //TASK 7
+        var expected = {foo: 5, bar: 6};
+        var actual = {foo: 5, bar: 5}
+        function assertObjectsEqual(actual, expected, testName){
+            if(JSON.stringify(expected)===JSON.stringify(actual)){
+                console.log('PASSED');
+            }
+            else{
+                console.log('FAILURE expected '+JSON.stringify(expected)+' but got '+ JSON.stringify(actual));
+            }
+        }
+        assertObjectsEqual(actual, expected, 'detects that two objects are equal');
+    </script>
+</body>
+</html>
